@@ -2,14 +2,14 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql");
 const logo = require("asciiart-logo");
-const cTable = require("console.table");
 
-// catabase connection
+
+// database connection
 var connection = mysql.createConnection({
     host:"localhost",
     port: 3306,
     user: "root",
-    password: "Maisie100!",
+    password: "Maisie!123",
     database: "employees",
 })
 
@@ -199,6 +199,7 @@ function addRoles() {
               name: "newRoleDept",
               message: "What department is this role in?",
             },
+
           ])
           .then(function (answer) {
             var newRole;
