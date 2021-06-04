@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql");
 const logo = require("asciiart-logo");
-const consTable = require("console.table");
+const cTable = require("console.table");
 
 // catabase connection
 var connection = mysql.createConnection({
@@ -30,35 +30,35 @@ function init() {
 
 // prompts 
 function loadPrompts() {
-    inquirer
-      .prompt({
-          type: "list",
-          name: "choice",
-          message: "What shall we do?",
-          choices: [
-              {name: "Update an employee's role.", value: "UPDATE_EMPLOYEES"},
-              {name: "Add an employee.", value: "ADD_EMPLOYEES"},
-              {name: "Add a role.", value: "ADD_ROLES"},
-        {name: "Add a department.", value: "ADD_DEPTS"},
-        {name: "Exit"},
-          ],
-      })
-      .then(function (answer) {
-        if (answer.choice === "UPDATE_EMPLOYEES") {
-          return updateEmployees();
-        }
-        if (answer.choice === "ADD_EMPLOYEES") {
-          return addEmployees();
-        }
-        if (answer.choice === "ADD_ROLES") {
-          return addRoles();
-        }
-        if (answer.choice === "ADD_DEPTS") {
-          return addDepts();
-        } else {
-          connection.end();
-        }
-      });
+  inquirer
+    .prompt({
+        type: "list",
+        name: "choice",
+        message: "What shall we do?",
+        choices: [
+          {name: "Update an employee's role.", value: "UPDATE_EMPLOYEES"},
+          {name: "Add an employee.", value: "ADD_EMPLOYEES"},
+          {name: "Add a role.", value: "ADD_ROLES"},
+          {name: "Add a department.", value: "ADD_DEPTS"},
+          {name: "Exit"},
+        ],
+    })
+    .then(function (answer) {
+      if (answer.choice === "UPDATE_EMPLOYEES") {
+        return updateEmployees();
+      }
+      if (answer.choice === "ADD_EMPLOYEES") {
+        return addEmployees();
+      }
+      if (answer.choice === "ADD_ROLES") {
+        return addRoles();
+      }
+      if (answer.choice === "ADD_DEPTS") {
+        return addDepts();
+      } else {
+        connection.end();
+      }
+    });
 }
 
 // Function update employees
