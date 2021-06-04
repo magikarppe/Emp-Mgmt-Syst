@@ -8,6 +8,7 @@ This application allows you to add, view, update or delete employee information.
 
 ## Walkthrough Video 
  
+ video [https://drive.google.com/file/d/13SRakcEqXtjwOHxV2bK6HpbO0-WA2fE_/view]
 
 ## User story
 ```
